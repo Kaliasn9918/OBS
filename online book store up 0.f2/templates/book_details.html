@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ book[1] }} - Book Details</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="top-bar">
+        <div class="logo">
+            <h1>Bookstore</h1>
+        </div>
+        <div class="auth-links">
+            {% if 'user_id' in session %}
+                <p>Welcome, {{ session['user_id'] }}! <a href="{{ url_for('logout') }}">Logout</a></p>
+                <a href="{{ url_for('cart') }}">Cart ({{ cart_count }})</a>
+            {% else %}
+                <a href="{{ url_for('login') }}">Login</a> | <a href="{{ url_for('signup') }}">Sign Up</a>
+            {% endif %}
+        </div>
+    </div>
+
+    <div class="book-details">
+        <h2>{{ book[1] }}</h2>
+        <p><strong>Category:</strong> {{ book[2] }}</p>
+        <p><strong>Description:</strong> {{ book[3] }}</p>
+        <p><strong>Price:</strong> ₹{{ book[4] }}</p>
+
+        {% if 'user_id' in session %}
+            <a href="{{ url_for('add_to_cart', book_id=book[0]) }}" class="add-to-cart-btn">Add to Cart</a>
+        {% else %}
+            <p><a href="{{ url_for('login') }}">Login to add to cart</a></p>
+        {% endif %}
+    </div>
+</body>
+</html>

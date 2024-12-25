@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <header>
+        <h1>About Us</h1>
+    </header>
+
+    <main>
+        <section>
+            <h2>Welcome to Knowledge Zone!</h2>
+            <p>We are dedicated to providing you with a world of endless knowledge. Our mission is to offer a diverse selection of books and resources to enrich your life. Whether you're looking for self-help books, fiction, or philosophical literature, we have something for everyone.</p>
+            <p>We believe in the power of knowledge to transform lives and inspire growth. Explore our collection today!</p>
+        </section>
+    </main>
+
+    <footer>
+        <a href="{{ url_for('home') }}">Back to Home</a>
+    </footer>
+</body>
+</html>

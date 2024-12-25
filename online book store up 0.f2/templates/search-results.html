@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search Results - Bookstore</title>
+</head>
+<body>
+    <h2>Search Results</h2>
+    {% if message %}
+        <p>{{ message }}</p>
+    {% else %}
+        <ul>
+            {% for book in books %}
+                <li>{{ book[1] }}</li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+    <a href="{{ url_for('home') }}">Back to Home</a>
+</body>
+</html>

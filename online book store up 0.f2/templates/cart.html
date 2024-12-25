@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Cart</title>
+</head>
+<body>
+    <h1>Your Cart</h1>
+    <ul>
+        {% for book in books_in_cart %}
+            <li>{{ book[0] }} - {{ book[1] }} - {{ book[2] }}</li>
+        {% endfor %}
+    </ul>
+    <a href="{{ url_for('purchase') }}">Proceed to Checkout</a>
+    <a href="{{ url_for('home') }}">Continue Shopping</a>
+</body>
+</html>
